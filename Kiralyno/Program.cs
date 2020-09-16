@@ -13,6 +13,11 @@ namespace Kiralyno
         private char UresOszlopokSzama;
         private char UresSorokSzama;
 
+        public Tabla(char ch)
+        {
+
+        }
+
         public void Elhelyez()
         {
 
@@ -24,11 +29,6 @@ namespace Kiralyno
         }
 
         public void Megjelenit()
-        {
-
-        }
-
-        public void Tabla()
         {
 
         }
