@@ -26,9 +26,19 @@ namespace Kiralyno
             }
         }
 
-        public void Elhelyez()
+        public void Elhelyez(int N)
         {
-
+            //1. Véletlen helyérték létrehozása.
+            //      - Random osztály értékek halmaza: [0, 7]
+            //      - Kell egy véletlen sor és egy véletlen oszlop.
+            //      - Elhelyezzük a "K"-t, ha üres.
+            Random veletlen = new Random();
+            int sor = veletlen.Next(0, 8);
+            int oszlop = veletlen.Next(0, 8);
+            if (T[sor,oszlop]=='#')
+            {
+                T[sor, oszlop] = 'K';
+            }
         }
 
         public void FajlbaIr()
@@ -66,6 +76,9 @@ namespace Kiralyno
             Tabla t = new Tabla('#');
 
             Console.WriteLine("Üres tábla: ");
+            t.Megjelenit();
+            t.Elhelyez(1);
+            Console.WriteLine();
             t.Megjelenit();
 
             Console.ReadKey();
