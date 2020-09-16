@@ -8,14 +8,22 @@ namespace Kiralyno
 {
     class Tabla
     {
-        char[,] T = new char[8, 8];
+        private char[,] T;//Deklarálás -> megmondjuk, hogy lesz valami, de nem adunk neki értéket.
         private char UresCella;
-        private char UresOszlopokSzama;
-        private char UresSorokSzama;
+        private int UresOszlopokSzama;
+        private int UresSorokSzama;
 
-        public Tabla(char ch)
+        public Tabla(char ch)//Konstruktor.
         {
-
+            T = new char[8, 8];//Inicializálás -> megadjuk a méretet.
+            UresCella = ch;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    T[i, j] = UresCella;
+                }
+            }
         }
 
         public void Elhelyez()
@@ -33,14 +41,14 @@ namespace Kiralyno
 
         }
 
-        public void UresOszlop()
+        public int UresOszlop()
         {
-
+            return 0;
         }
 
-        public void UresSor()
+        public int UresSor()
         {
-
+            return 0;
         }
     }
 
