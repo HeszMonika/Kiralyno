@@ -38,7 +38,14 @@ namespace Kiralyno
 
         public void Megjelenit()
         {
-
+            for (int i = 0; i < 8; i++)
+            {
+                Console.WriteLine();
+                for (int j = 0; j < 8; j++)
+                {
+                    Console.Write(T[i, j]);
+                }
+            }
         }
 
         public int UresOszlop()
@@ -56,6 +63,11 @@ namespace Kiralyno
     {
         static void Main(string[] args)
         {
+            Tabla t = new Tabla('#');
+
+            Console.WriteLine("Üres tábla: ");
+            t.Megjelenit();
+
             Console.ReadKey();
         }
     }
