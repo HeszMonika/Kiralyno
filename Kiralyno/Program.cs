@@ -33,10 +33,15 @@ namespace Kiralyno
             //      - Kell egy véletlen sor és egy véletlen oszlop.
             //      - Elhelyezzük a "K"-t, ha üres.
             Random veletlen = new Random();
-            int sor = veletlen.Next(0, 8);
-            int oszlop = veletlen.Next(0, 8);
-            if (T[sor,oszlop]=='#')
+            for (int i = 0; i < N; i++)
             {
+                int sor = veletlen.Next(0, 8);
+                int oszlop = veletlen.Next(0, 8);
+                while (T[sor,oszlop]=='K')
+                {
+                    sor = veletlen.Next(0, 8);
+                    oszlop = veletlen.Next(0, 8);
+                }
                 T[sor, oszlop] = 'K';
             }
         }
@@ -77,7 +82,7 @@ namespace Kiralyno
 
             Console.WriteLine("Üres tábla: ");
             t.Megjelenit();
-            t.Elhelyez(1);
+            t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
 
