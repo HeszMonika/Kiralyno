@@ -63,14 +63,32 @@ namespace Kiralyno
             }
         }
 
-        public int UresOszlop()
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            bool van = true;
+            for (int i = 0; i < 8; i++)
+            {
+                if (T[i, oszlop] == 'K')
+                {
+                    van = false;
+                    break;
+                }
+            }
+            return van;
         }
 
-        public int UresSor()
+        public bool UresSor(int sor)
         {
-            return 0;
+            bool van = true;
+            for (int i = 0; i < 8; i++)
+            {
+                if (T[sor, i] == 'K')
+                {
+                    van = false;
+                    break;
+                }
+            }
+            return van;
         }
     }
 
@@ -85,6 +103,27 @@ namespace Kiralyno
             t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
+            Console.WriteLine();
+
+            if(t.UresOszlop(1) == true)
+            {
+                Console.WriteLine("A megadott oszlop üres.");
+            }
+            else
+            {
+                Console.WriteLine("A megadott oszlop nem üres.");
+                
+            }
+
+
+            if (t.UresSor(1) == true)
+            {
+                Console.WriteLine("A megadott sor üres.");
+            }
+            else
+            {
+                Console.WriteLine("A megadott sor nem üres.");
+            }
 
             Console.ReadKey();
         }
