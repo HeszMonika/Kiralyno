@@ -75,6 +75,21 @@ namespace Kiralyno
                 }
             }
             return van;
+
+            //int i = 0;
+            //while (i < 8  && T[i, oszlop] !='K')
+            //{
+            //    i++;
+            //}
+
+            //if (i < 8)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    return true;
+            //}
         }
 
         public bool UresSor(int sor)
@@ -89,6 +104,21 @@ namespace Kiralyno
                 }
             }
             return van;
+
+            //int i = 0;
+            //while (i < 8 && T[sor, i] != 'K')
+            //{
+            //    i++;
+            //}
+
+            //if (i < 8)
+            //{
+            //    return false;
+            //}
+            //else
+            //{
+            //    return true;
+            //}
         }
     }
 
@@ -105,7 +135,7 @@ namespace Kiralyno
             t.Megjelenit();
             Console.WriteLine();
 
-            if(t.UresOszlop(1) == true)
+            if (t.UresOszlop(1) == true)
             {
                 Console.WriteLine("A megadott oszlop üres.");
             }
@@ -124,6 +154,34 @@ namespace Kiralyno
             {
                 Console.WriteLine("A megadott sor nem üres.");
             }
+
+            //Console.Write("Melyik sor? ");
+            //int sor = int.Parse(Console.ReadLine());
+            //if (t.UresSor(sor))
+            //{
+            //    Console.WriteLine("A megadott sor üres.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("A megadott sor nem üres.");
+            //}
+
+            Console.WriteLine("Az üres oszlopok és sorok száma:");
+
+            int UresSor = 0;
+            int UresOszlop = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                if (t.UresSor(i) == true)
+                {
+                    UresSor++;
+                }
+                else if (t.UresOszlop(i) == true)
+                {
+                    UresOszlop++;
+                }
+            }
+            Console.WriteLine("{0}, {1}", UresSor, UresOszlop);
 
             Console.ReadKey();
         }
