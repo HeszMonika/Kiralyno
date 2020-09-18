@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Kiralyno
 {
@@ -46,9 +47,18 @@ namespace Kiralyno
             }
         }
 
-        public void FajlbaIr()
+        public void FajlbaIr(StreamWriter fajl)
         {
-
+            //fajl.WriteLine("Ez egy szöveg.");
+            for (int i = 0; i < 8; i++)
+            {
+                string sor = "";
+                for (int j = 0; j < 8; j++)
+                {
+                    sor += T[i, j];
+                }
+                fajl.WriteLine(sor);
+            }
         }
 
         public void Megjelenit()
@@ -182,6 +192,25 @@ namespace Kiralyno
                 }
             }
             Console.WriteLine("{0}, {1}", UresSor, UresOszlop);
+
+
+            Tabla tab = new Tabla('#');
+            Tabla[] tablak = new Tabla[64];
+
+            StreamWriter ki = new StreamWriter("adatok.txt");
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i] = new Tabla('*');
+            }
+
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i].Elhelyez(i + 1);
+                tablak[i].FajlbaIr(ki);
+                ki.WriteLine();
+            }
+
+            ki.Close();
 
             Console.ReadKey();
         }
